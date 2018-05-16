@@ -1,0 +1,27 @@
+<h1>Eat-DA-Burger</h1>
+
+<img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/impossible-burger-1523482169.jpg?crop=1.00xw:0.748xh;0,0.156xh&resize=768:*" alt="burger-main" style="height: 100px; width:100px;">
+
+<ol id="added-list">
+    {{#each burgers}}
+        {{#unless eaten}}
+            {{> burgers/burger-block eaten=true}}
+        {{/unless}}
+    {{/each}}
+</ol>
+
+<ol id="eaten-list">
+    {{#each burgers}}
+        {{#if eaten}}
+            {{> burgers/burger-block eaten=true}}
+        {{/if}}
+    {{/each}}
+</ol>
+
+<form>
+    <textarea name="burger-add" id="burger-add" cols="30" rows="10"></textarea>
+
+    <button type="submit">Add Burger</button>
+</form>
+
+
