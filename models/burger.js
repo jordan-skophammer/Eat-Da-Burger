@@ -4,6 +4,7 @@ var burger = {
     all: function(cb) {
       orm.all(function(res) {
         cb(res);
+        console.log(res)
       });
     },
     insert: function(cols, vals, cb) {
@@ -11,11 +12,11 @@ var burger = {
         cb(res);
       });
     },
-    update: function(colVal, condition, cb) {
-      orm.update(colVal, condition, function(res) { n
+    update: function(colVal, burgerId, cb) {
+      orm.update(colVal, burgerId, function(res) { n
         cb(res);
       });
     }
   };
 
-  module.exports = burger;
+module.exports = burger;

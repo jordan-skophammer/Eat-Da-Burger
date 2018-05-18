@@ -3,7 +3,7 @@
 <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/impossible-burger-1523482169.jpg?crop=1.00xw:0.748xh;0,0.156xh&resize=768:*" alt="burger-main" style="height: 100px; width:100px;">
 
 <ol id="added-list">
-    {{#each burgers}}
+    {{#each burger}}
         {{#unless eaten}}
             {{> burgers/burger-list eaten=true}}
         {{/unless}}
@@ -11,7 +11,7 @@
 </ol>
 
 <ol id="eaten-list">
-    {{#each burgers}}
+    {{#each burger}}
         {{#if eaten}}
             {{> burgers/burger-eaten eaten=false}}
         {{/if}}
@@ -21,7 +21,7 @@
 <form>
     <textarea name="burger-add" id="burger-add" cols="30" rows="10"></textarea>
 
-    <button type="submit">Add Burger</button>
+    <button id="submit" type="submit">Add Burger</button>
 </form>
 
 

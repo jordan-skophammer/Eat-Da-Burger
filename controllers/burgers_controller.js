@@ -2,22 +2,28 @@ var express = require("express");
 var router =  express.Router();
 var burger = require("../models/burger.js");
 
-
 router.get("/", function(req, res) {
     burger.all(function(data) {
       var burgerObject = {
         burger: data
       };
-      console.log(burgerObject);
+      console.log(data);
       res.render("index", burgerObject);
     });
   });
   
   router.post("/api/burgers", function(req, res) {
-    cat.create(["name"], [req.body.name], function(result) {
+    burger.create(["name"], [req.body.name], function(result) {
 
       res.json({ id: result.insertId });
     });
+    burger.all(function(data) {
+      var burgerObject = {
+        burger: data
+      };
+
+      res.render("index", burgerObject)
+    })
   });
   
   router.put("/api/burgers/:id", function(req, res) {
