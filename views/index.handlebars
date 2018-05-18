@@ -1,7 +1,8 @@
-<h1>Eat-DA-Burger</h1>
+<h1>Burger Me</h1>
 
 <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/impossible-burger-1523482169.jpg?crop=1.00xw:0.748xh;0,0.156xh&resize=768:*" alt="burger-main" style="height: 100px; width:100px;">
 
+<h2>Burger List</h2>
 <ol id="added-list">
     {{#each burger}}
         {{#unless eaten}}
@@ -10,6 +11,7 @@
     {{/each}}
 </ol>
 
+<h2>Burger Eaten</h2>
 <ol id="eaten-list">
     {{#each burger}}
         {{#if eaten}}
