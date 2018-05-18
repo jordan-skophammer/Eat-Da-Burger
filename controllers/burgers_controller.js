@@ -16,24 +16,31 @@ router.get("/", function(req, res) {
     burger.insert(["name"], [req.body.name], function(result) {
 
       res.json({ id: result.insertId });
+      
+      if (result.changedRows == 0) {
+          return res.status(404).end();
+        } else {
+          res.status(200).end();
+        }
     });
-    burger.all(function(data) {
-      var burgerObject = {
-        burger: data
-      };
-
-      res.render("index", burgerObject)
-    })
+  
+    // burger.all(function(data) {
+    //   var burgerObject = {
+    //     burger: data
+    //   };
+    //   res.render("index", burgerObject)
+      
+    // })
   });
   
   router.put("/api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
+    var burgerID = "id = " + req.params.id;
   
     console.log(condition);
   
-    cat.update({
+    burgers.update({
       burger: req.body.name
-    }, condition, function(result) {
+    }, burgerID, function(result) {
       if (result.changedRows == 0) {
         return res.status(404).end();
       } else {
