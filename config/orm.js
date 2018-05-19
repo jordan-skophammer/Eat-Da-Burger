@@ -18,8 +18,9 @@ var orm = {
             cb(result);
         })
     },
-    update: function(colVal, burgerID, cb) {
-        connection.query("UPDATE burgers SET" + colVal+ "WHERE id =" + burgerID + ";", function(err, result) {
+    update: function(burgerID, cb) {
+        
+        connection.query("UPDATE burgers SET eaten = true WHERE id =" + burgerID + ";", function(err, result) {
             if (err) {
                 throw err;
             }

@@ -6,7 +6,7 @@
 <ol id="added-list">
     {{#each burger}}
         {{#unless eaten}}
-            {{> burgers/burger-list eaten=true}}
+            {{> burgers/burger-list eaten=false}}
         {{/unless}}
     {{/each}}
 </ol>
@@ -15,7 +15,7 @@
 <ol id="eaten-list">
     {{#each burger}}
         {{#if eaten}}
-            {{> burgers/burger-eaten eaten=false}}
+            {{> burgers/burger-eaten eaten=true}}
         {{/if}}
     {{/each}}
 </ol>

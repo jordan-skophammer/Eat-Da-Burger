@@ -4,7 +4,6 @@ var burger = {
     all: function(cb) {
       orm.all(function(res) {
         cb(res);
-        // console.log(res)
       });
     },
     insert: function(cols, vals, cb) {

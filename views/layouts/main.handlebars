@@ -12,7 +12,7 @@
 
 <script>
     //console.log("DOM Ready");
-$(function() {
+
 
     $("#submit").on("click", function(event) {
     // Make sure to preventDefault on a submit event.
@@ -30,12 +30,32 @@ $(function() {
         }).then(
             function() {
             console.log("created new burger");
-            // Reload the page to get the updated list
             location.reload();
             }
         );
-    }); 
-});
+    });
+
+    $(".eat-burger").on("click", function(event) {
+        var id = $(this).data("id")
+
+        var eatenBurger = {
+            name: id,
+            eaten: true
+        }
+
+        console.log("botton clicked")
+
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: eatenBurger
+        }).then(
+            function() {
+                console.log("burger eaten")
+                location.reload()
+            }
+        )
+    })
+
  
 </script>
 </body>
