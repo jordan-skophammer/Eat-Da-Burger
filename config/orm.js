@@ -26,6 +26,15 @@ var orm = {
             }
             cb(result);
         })
+    },
+    delete: function(burgerID, cb) {
+
+        connection.query("DELETE FROM burgers WHERE id =" + burgerID  + ";", function (err, result) {
+            if(err) {
+                throw err;
+            }
+            cb(result)
+        })
     }
 };
 

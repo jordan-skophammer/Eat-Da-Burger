@@ -2,6 +2,7 @@ var express = require("express");
 var router =  express.Router();
 var burger = require("../models/burger.js");
 
+
 router.get("/", function(req, res) {
     burger.all(function(data) {
       var burgerObject = {
@@ -23,20 +24,12 @@ router.post("/api/burgers", function(req, res) {
       }
   });
 
-  // burger.all(function(data) {
-  //   var burgerObject = {
-  //     burger: data
-  //   };
-  //   res.render("index", burgerObject)
-    
-  // })
 });
   
   router.put("/api/burgers/:id", function(req, res) {
+
     var burgerID = req.params.id;
-  
-    // console.log(req.body.eaten);
-  
+
     burger.update(burgerID, function(result) {
 
       if (result.changedRows == 0) {
@@ -45,6 +38,20 @@ router.post("/api/burgers", function(req, res) {
         res.status(200).end();
       }
 
+    });
+  });
+
+  router.delete("/api/burgers/:id", function(req, res) {
+
+    var burgerID = req.params.id;
+
+    burger.delete(burgerID, function(result) {
+
+      if (result.changedRows == 0) {
+        return res.status(404).end();
+      } else {
+        res.status(200).end();
+      }
     });
   });
 

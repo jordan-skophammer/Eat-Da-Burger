@@ -11,8 +11,13 @@ var burger = {
         cb(res);
       });
     },
-    update: function(colVal, burgerId, cb) {
-      orm.update(colVal, burgerId, function(res) { n
+    update: function(burgerID, cb) {
+      orm.update(burgerID, function(res) { 
+        cb(res);
+      });
+    },
+    delete: function(burgerID, cb) {
+      orm.delete(burgerID, function(res) {
         cb(res);
       });
     }
