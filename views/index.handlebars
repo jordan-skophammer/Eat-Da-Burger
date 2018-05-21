@@ -1,29 +1,54 @@
-<h1>Burger Me</h1>
+<main class="container">
+    
+    <section class="card-panel amber lighten-2">
+        <div class="row center-align">
+            <div class="col m12">
+                <h1>Burger Me</h1>
+            </div>
+        </div>
 
-<img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/impossible-burger-1523482169.jpg?crop=1.00xw:0.748xh;0,0.156xh&resize=768:*" alt="burger-main" style="height: 100px; width:100px;">
+        <div class="row center-align">
+            {{!-- <div class="col m2"></div> --}}
+            <div class="col m4">
+                <h2><u>Burger List</u></h2>
+                <ol id="added-list">
+                    {{#each burger}}
+                        {{#unless eaten}}
+                            {{> burgers/burger-list eaten=false}}
+                        {{/unless}}
+                    {{/each}}
+                </ol>
+            </div>
+            <div class="col m4"></div> 
+            <div class="col m4">
+                <h2><u>Eaten List</u></h2>
+                <ol id="eaten-list">
+                    {{#each burger}}
+                        {{#if eaten}}
+                            {{> burgers/burger-eaten eaten=true}}
+                        {{/if}}
+                    {{/each}}
+                </ol>
+            </div>
+            
+        </div>
+        <div class="row center-align">
+            <div class="col m3"></div>
+            <div class="col m6">
+                <form>
+                    <textarea class="white" name="burger-add" id="burger-add" cols="10" rows="10"></textarea>
 
-<h2>Burger List</h2>
-<ol id="added-list">
-    {{#each burger}}
-        {{#unless eaten}}
-            {{> burgers/burger-list eaten=false}}
-        {{/unless}}
-    {{/each}}
-</ol>
+                    <button id="submit" type="submit">Add Burger</button>
+                </form>
+            </div>
+            <div class="col m3"></div>
+        </div>
+    </section>
+    
+    
+    
+    
+</main>
 
-<h2>Burger Eaten</h2>
-<ol id="eaten-list">
-    {{#each burger}}
-        {{#if eaten}}
-            {{> burgers/burger-eaten eaten=true}}
-        {{/if}}
-    {{/each}}
-</ol>
-
-<form>
-    <textarea name="burger-add" id="burger-add" cols="30" rows="10"></textarea>
-
-    <button id="submit" type="submit">Add Burger</button>
-</form>
 
 

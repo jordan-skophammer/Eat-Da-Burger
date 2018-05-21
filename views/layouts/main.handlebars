@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Burger Time</title>
+    <title>Burger Me</title>
     <script src="https://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </head>
-<body>
+<body background="https://thumbs.dreamstime.com/b/burger-pattern-white-background-seamless-burgers-vector-hand-drawn-illustration-banners-70790730.jpg">
     {{{body}}}
 
 <script>
@@ -60,16 +62,12 @@
             type: "DELETE",
         }).then(
             function() {
-                console.log("burger deleted")
-                
-            }
-            
+                console.log("burger deleted");    
+            }    
         )
 
-        location.reload()
+        location.reload();
     })
-
- 
 </script>
 </body>
 </html>
